@@ -1,4 +1,4 @@
-karaf_version: 4.0.8
+karaf_version: 4.1.2
 karaf_staging_folder: /usr/local/src
 karaf_install_folder: /opt
 karaf_install_symlink: /opt/karaf

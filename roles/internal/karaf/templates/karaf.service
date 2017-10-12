@@ -4,10 +4,15 @@ Description=karaf
 [Service]
 User={{ karaf_user }}
 Type=forking
-PIDFile={{ karaf_install_symlink }}/data/karaf.pid
 ExecStart={{ karaf_install_symlink }}/bin/karaf-service start
 ExecReload={{ karaf_install_symlink }}/bin/karaf-service restart
 ExecStop={{ karaf_install_symlink }}/bin/karaf-service stop
+
+uccessExitStatus=0 143
+RestartSec=15
+Restart=on-failure
+
+limitNOFILE=102642
 
 [Install]
 Alias=karaf
