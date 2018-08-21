@@ -13,6 +13,7 @@ colorful text on a black background. Terminals provide more control than a GUI w
 a computer system that are required for software like the pre-requisite requirements for Islandora.
 
 Requirement (n.)--software/hardware basics that must be in place before a piece of software will run properly
+
 GUI (n.)-- a graphical user interface. This is the "pretty" front end designed for end-users.
 
 ### Step-by-step:
@@ -60,10 +61,13 @@ On your new Ubuntu computer, download the following:
 Open the terminal of your new Ubuntu computer to download the remaining requirements:
 1. To install [git](https://git-scm.com/) follow these [instructions](https://www.liquidweb.com/kb/install-git-ubuntu-16-04-lts/), or the following:
 >apt-get update
+
 >apt-get install git
+
 >git --version
 
 1. To instal ansible, type the following lines of code, one at a time into the terminal:
+
 >$ sudo apt-get update
 
 >$ sudo apt-get install software-properties-common
@@ -76,11 +80,14 @@ Open the terminal of your new Ubuntu computer to download the remaining requirem
 
 #### Step five: Clone and Run Islandora CLAW vagrant
 1. To download Islandora CLAW, type the following into the terminal:
+
 > git clone https://github.com/Islandora-Devops/claw-playbook.git
 
 2. When that script has finished running, open or move into the appropriate folder by typing the following into the terminal:
+
 > cd claw-playbook
 
 3. To run the scripts, type:
+
 > vagrant up
 
