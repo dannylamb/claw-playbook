@@ -1,6 +1,6 @@
 ---
 
-crayfish_version_tag: dev-format_jsonld_strip
+crayfish_version_tag: format_jsonld_strip
 
 crayfish_db: "{{ claw_db }}"
 
