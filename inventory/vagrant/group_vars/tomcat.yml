@@ -11,10 +11,8 @@ tomcat8_users:
 fcrepo_persistence: jdbc-mysql
 
 # Used for mysql or postgres object persistence.
-fcrepo_db_name: fcrepo
-fcrepo_db_user: fcrepo
-fcrepo_db_host: "127.0.0.1"
-fcrepo_db_port: "3306"
+fcrepo_db_host: "{{ hostvars[groups['database'][0]].ansible_host  }}"
+fcrepo_db_root_user: "{% if crayfish_db == 'mysql' %}{{ mysql_islandora_user }}{% elif crayfish_db == 'pgsql' %}{{ fcrepo_pgsql_user }}{% endif %}" 
 
 tomcat8_java_opts:
   - -Djava.awt.headless=true
@@ -55,6 +53,8 @@ fcrepo_syn_tokens:
 fcrepo_version: "5.1.0"
 fcrepo_auth_header_name: "X-Islandora"
 fcrepo_syn_auth_header: "X-Islandora"
+fcrepo_allowed_external_content:
+  - "http://{{ hostvars[groups['webserver'][0]].ansible_host  }}:{{ apache_listen_port }}/"
 
 cantaloupe_deploy_war: yes
 cantaloupe_deploy_war_path: "{{ tomcat8_home }}/webapps"
@@ -73,4 +73,4 @@ cantaloupe_cache_source: FilesystemCache
 cantaloupe_cache_derivative: FilesystemCache
 cantaloupe_create_FilesystemCache_dir: yes
 cantaloupe_resolver_static: HttpResolver
-cantaloupe_HttpResolver_BasicLookupStrategy_url_prefix: ""
+cantaloupe_HttpResolver_BasicLookupStrategy_url_prefix: "http://{{ hostvars[groups['webserver'][0]].ansible_host  }}:{{ apache_listen_port }}/"

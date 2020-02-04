@@ -29,8 +29,15 @@ islandora_extra_centos_packages:
   - kernel-devel
 
 postgresql_user: postgres
+mysql_islandora_user: islandora
+drupal_db_user: drupal8
+drupal_db_name: drupal8
 
 mysql_users:
+  - name: "{{ mysql_islandora_user }}"
+    host: "%"
+    password: "{{ mysql_islandora_user_password }}"
+    priv: "*.*:ALL,GRANT"
   - name: "{{ drupal_db_user }}"
     host: "%"
     password: "{{ drupal_db_password }}"
